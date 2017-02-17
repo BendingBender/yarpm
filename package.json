@@ -1,0 +1,33 @@
+{
+  "name": "yarpm",
+  "version": "1.0.0",
+  "description": "CLI tool to run npm scripts with either npm or yarn, depending on how it was started",
+  "bin": {
+    "yarpm": "bin/yarpm.js"
+  },
+  "main": "lib/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BendingBender/yarpm.git"
+  },
+  "keywords": [
+    "npm",
+    "yarn",
+    "npm-scripts",
+    "cross-platform",
+    "npm-package",
+    "cli"
+  ],
+  "author": "Dimitri Benin <semtexx@web.de>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/BendingBender/yarpm/issues"
+  },
+  "homepage": "https://github.com/BendingBender/yarpm#readme",
+  "dependencies": {
+    "cross-spawn": "^5.0.1"
+  }
+}
