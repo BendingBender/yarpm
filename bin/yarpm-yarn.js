@@ -6,6 +6,6 @@ const run = require('./bin-executor').run;
 
 commandExists('yarn')
   .then(
-    () => run({fallbackNpmPath: 'yarn', env: Object.assign({}, process.env, {npm_config_loglevel: 'warn'})}),
+    () => run({npmPath: 'yarn', env: Object.assign({}, process.env, {npm_config_loglevel: 'warn'})}),
     () => run()
   );
