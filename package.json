@@ -1,9 +1,10 @@
 {
   "name": "yarpm",
-  "version": "0.0.3",
+  "version": "0.1.0",
   "description": "CLI tool to run npm scripts with either npm or yarn, depending on how it was started",
   "bin": {
-    "yarpm": "bin/yarpm.js"
+    "yarpm": "bin/yarpm.js",
+    "yarpm-yarn": "bin/yarpm-yarn.js"
   },
   "main": "lib/index.js",
   "scripts": {
@@ -28,6 +29,7 @@
   },
   "homepage": "https://github.com/BendingBender/yarpm#readme",
   "dependencies": {
-    "cross-spawn": "^5.0.1"
+    "command-exists": "^1.2.2",
+    "cross-spawn": "^5.1.0"
   }
 }
