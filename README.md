@@ -25,8 +25,8 @@ npm run build
 
 ## What this tool is *not*
 This tool is not meant to be an abstraction layer for calling `npm` or `yarn`. It will pass **all** arguments it receives
-unfiltered to the chosen package manager. So *theoretically* you can create the following `package.json` and pass the
-`-s` flag to `yarpm` to silence `npm` output:
+unfiltered to the chosen package manager. So you could create the following `package.json` and pass the `-s` flag to
+`yarpm` to silence `npm` output:
 ```json
 {
   "scripts": {
@@ -59,10 +59,10 @@ $ yarn add yarpm --dev
 
 This `yarpm` package provides 2 CLI commands.
 
-- [yarpm]
-- [yarpm-yarn]
+- [yarpm](#yarpm-1)
+- [yarpm-yarn](#yarpm-yarn)
 
-The main command is [yarpm].
+The main command is `yarpm`.
 
 ### yarpm
 This command is an in-place substitute places in `package.json` where `npm` or `yarn` is being explicitly used. It reads
