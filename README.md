@@ -55,7 +55,7 @@ $ yarn add yarpm --dev
 
 ## CLI Commands
 
-This `yarpm` package provides 2 CLI commands.
+The `yarpm` package provides 2 CLI commands:
 
 - [yarpm](#yarpm-1)
 - [yarpm-yarn](#yarpm-yarn)
@@ -112,11 +112,11 @@ const promise = yarpm(argv, options);
     Default is `null`.
     Set to `process.stderr` in order to print to stderr.
 
-`yarpm` returns a promise that will becomes *fulfilled* when the spawned process exits ***regardless of the exit code***.
-The promise will become *rejected* when in case of an internal error inside of `yarpm`.
+`yarpm` returns a promise will be *resolved* when the spawned process exits, ***regardless of the exit code***.
+The promise will be *rejected* in case of an internal error inside of `yarpm`.
 
-The promise fulfills with an object with the following 2 properties: `argv` and `code`.
-The `spawnArgs` property is the array arguments that was passed to spawn the sub-process.
+The promise is resolved with an object with the following 2 properties: `spawnArgs` and `code`.
+The `spawnArgs` property contains the array of parameters that were passed to spawn the sub-process.
 The `code` property is the exit code of the sub-process.
 
 ```js
