@@ -1,6 +1,7 @@
 # yarpm
 A CLI tool to run npm scripts with either `npm` or `yarn`, depending on how it was started. Useful for setups where
-some team members use `npm` while others use `yarn`.
+some team members use `npm` while others use `yarn`, especially when Windows and Unix-like systems are used across the
+team.
 
 This tool is a helper to run scripts from `package.json`. Just substitute all `npm` or `yarn` calls with `yarpm`
 and you're good to go:
