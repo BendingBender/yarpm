@@ -16,12 +16,25 @@ and you're good to go:
 
 When running the `start` script with `yarn start`, the dependent `build` script will be spawned with `yarn`:
 ```bash
-yarn run build
+~/test$ yarn start
+yarn start v0.21.3
+$ yarpm run build
+yarn run v0.21.3
+$ tsc index.ts
+Done in 1.92s.
+Done in 2.27s.
 ```
 
 Running the same script with `npm start` will result in the dependent `build` being run with `npm`:
 ```bash
-npm run build
+~/test$ npm start
+
+> test@0.0.1 start /home/me/test
+> yarpm run build
+
+
+> test@0.0.1 build /home/me/test
+> tsc index.ts
 ```
 
 ## What this tool is *not*
