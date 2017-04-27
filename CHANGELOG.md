@@ -1,6 +1,10 @@
 Change Log
 ===
 
+v0.2.1
+---
+* fix script to run on Node 4
+
 v0.2.0
 ---
 * add Node API to readme
