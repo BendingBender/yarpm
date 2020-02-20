@@ -6,11 +6,11 @@
 
 ## Summary
 
-A CLI tool to run npm scripts with either `npm` or `yarn`, depending on how it was started. Useful for setups where
-some team members use `npm` while others use `yarn`, especially when Windows and Unix-like systems are used across the
-team.
+A CLI tool to run npm scripts with either `npm`, `pnpm` or `yarn`, depending on how it was started. Useful for setups
+where some team members use `npm` while others use `pnpm` or `yarn`, especially when Windows and Unix-like systems are
+used across the team.
 
-This tool is a helper to run scripts from `package.json`. Just substitute all `npm` or `yarn` calls with `yarpm`
+This tool is a helper to run scripts from `package.json`. Just substitute all `npm`, `pnpm` or `yarn` calls with `yarpm`
 and you're good to go:
 
 ```json
@@ -48,9 +48,9 @@ Running the same script with `npm start` will result in the dependent `build` be
 
 ## What this tool is _not_
 
-This tool is not meant to be an abstraction layer for calling `npm` or `yarn`. It will pass **all** arguments it receives
-unfiltered to the chosen package manager. So you could create the following `package.json` and pass the `-s` flag to
-`yarpm` to silence `npm` output:
+This tool is not meant to be an abstraction layer for calling `npm`, `pnpm` or `yarn`. It will pass **all** arguments
+it receives unfiltered to the chosen package manager. So you could create the following `package.json` and pass
+the `-s` flag to `yarpm` to silence `npm` or `pnpm` output:
 
 ```json
 {
@@ -61,8 +61,8 @@ unfiltered to the chosen package manager. So you could create the following `pac
 }
 ```
 
-This will work if you invoke the script with `npm start`. Running the script with `yarn start` will result in the
-following error:
+This will work if you invoke the script with `npm start` or `pnpm start`. Running the script with `yarn start` will
+result in the following error:
 
 ```
 yarn run v0.21.3
@@ -71,31 +71,40 @@ error No command specified.
 ```
 
 This is due to the fact that `yarn` doesn't understand the `-s` option. This is up to you to write your scripts so
-that only commands and options available to both `npm` and `yarn` are used.
+that only commands and options available to all of `npm`, `pnpm` and `yarn` are used.
 
 ## Installation
 
 ```bash
 $ npm install yarpm --save-dev
 # or
+$ pnpm add yarpm --save-dev
+# or
 $ yarn add yarpm --dev
 ```
 
 ## CLI Commands
 
-The `yarpm` package provides 2 CLI commands:
+The `yarpm` package provides 3 CLI commands:
 
 - [yarpm](#yarpm-1)
+- [yarpm-pnpm](#yarpm-pnpm)
 - [yarpm-yarn](#yarpm-yarn)
 
 The main command is `yarpm`.
 
 ### yarpm
 
-This command is an in-place substitute for places in `package.json` where `npm` or `yarn` is being used explicitly.
-It reads the `npm_execpath` environment variable to determine the path to the currently used package manager. This env
-var is only set when running `yarpm` as a script. If `yarpm` is used without being embedded in a script, it will
-**always** choose `npm`.
+This command is an in-place substitute for places in `package.json` where `npm`, `pnpm` or `yarn` is being used
+explicitly. It reads the `npm_execpath` environment variable to determine the path to the currently used package
+manager. This env var is only set when running `yarpm` as a script. If `yarpm` is used without being embedded
+in a script, it will **always** choose `npm`.
+
+### yarpm-pnpm
+
+This command can be used in places where you are not in control of how your script is being started, for example when
+using `husky` to run a script as a git hook. This script will **always** prefer `pnpm` over `npm` unless `pnpm` is not
+available. Only then will it fall back to `npm`.
 
 ### yarpm-yarn
 
@@ -112,10 +121,10 @@ const yarpm = require('yarpm');
 const promise = yarpm(argv, options);
 ```
 
-- **argv** `string[]` -- The argument list to pass to npm/yarn.
+- **argv** `string[]` -- The argument list to pass to npm/pnpm/yarn.
 - **options** `object|undefined`
   - **options.npmPath** `string` -
-    The path to npm/yarn.
+    The path to npm/pnpm/yarn.
     Default is `process.env.npm_execpath` if set, `npm` otherwise.
   - **options.env** `object` -
     Sets the environment key-value pairs, replaces the default usage of process.env to spawn child process.

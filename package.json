@@ -1,9 +1,10 @@
 {
   "name": "yarpm",
   "version": "1.0.1",
-  "description": "CLI tool to run npm scripts with either npm or yarn, depending on how it was started",
+  "description": "CLI tool to run npm scripts with either npm, pnpm or yarn, depending on how it was started",
   "bin": {
     "yarpm": "bin/yarpm.js",
+    "yarpm-pnpm": "bin/yarpm-pnpm.js",
     "yarpm-yarn": "bin/yarpm-yarn.js"
   },
   "main": "lib/index.js",
