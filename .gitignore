@@ -36,3 +36,6 @@ jspm_packages
 # IDE project files
 .idea
 .vscode
+
+# Generated test project
+test-project

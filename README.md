@@ -29,8 +29,7 @@ When running the `start` script with `yarn start`, the dependent `build` script 
 yarn start v1.22.5
 $ yarpm run build
 $ tsc index.ts
-Done in 1.92s.
-Done in 2.27s.
+✨  Done in 2.27s.
 ```
 
 Running the same script with `npm start` will result in the dependent `build` being run with `npm`:
@@ -48,30 +47,9 @@ Running the same script with `npm start` will result in the dependent `build` be
 
 ## What this tool is _not_
 
-This tool is not meant to be an abstraction layer for calling `npm` or `yarn`. It will pass **all** arguments it receives
-unfiltered to the chosen package manager. So you could create the following `package.json` and pass the `-s` flag to
-`yarpm` to silence `npm` output:
-
-```json
-{
-  "scripts": {
-    "start": "yarpm run -s build",
-    "build": "tsc index.ts"
-  }
-}
-```
-
-This will work if you invoke the script with `npm start`. Running the script with `yarn start` will result in the
-following error:
-
-```
-yarn run v0.21.3
-error No command specified.
-....
-```
-
-This is due to the fact that `yarn` doesn't understand the `-s` option. This is up to you to write your scripts so
-that only commands and options available to both `npm` and `yarn` are used.
+This tool is not meant to be an abstraction layer for calling `npm` or `yarn`. It will pass **all** arguments
+it receives unfiltered to the chosen package manager. You'll have to make sure that the package manager commands you use
+are compatible with all the package managers you want your commands to work with.
 
 ## Installation
 
