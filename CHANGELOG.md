@@ -1,19 +1,18 @@
-Change Log
-===
+# Change Log
 
-unreleased
----
-* upgrade dependencies
+## unreleased
+
+- upgrade dependencies
 
 **BREAKING**:
 
-* drop support for Node < 8
+- drop support for Node < 8
 
-v0.2.1
----
-* fix script to run on Node 4
+## v0.2.1
 
-v0.2.0
----
-* add Node API to readme
-* `yarpm` now resolves the promise with the argument list passed to spawn instead of the list passed to `yarpm`
+- fix script to run on Node 4
+
+## v0.2.0
+
+- add Node API to readme
+- `yarpm` now resolves the promise with the argument list passed to spawn instead of the list passed to `yarpm`
