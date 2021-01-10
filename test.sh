@@ -1,5 +1,5 @@
 #!/bin/bash
-set -euxo pipefail
+set -euo pipefail
 
 npm link
 
@@ -17,14 +17,26 @@ function run_test {
   npm_script=$2
   test_pattern=$3
 
+  echo 'Testing "'"$exe"' run '"$npm_script"'"'
   $exe run "$npm_script" foo > "$exe-$npm_script".$$.txt 2>&1
-  grep -E "$test_pattern" "$exe-$npm_script".$$.txt 1>/dev/null || { echo 'test for "'"$exe"' run '"$npm_script"'" failed!'; exit 1; }
+  set +e
+  grep -E "$test_pattern" "$exe-$npm_script".$$.txt 1>/dev/null
+  grep_result=$?
+  set -e
+
+  if [[ $grep_result -ne 0 ]]; then
+    echo 'test for "'"$exe"' run '"$npm_script"'" failed!'
+    cat "$exe-$npm_script".$$.txt
+    exit 1
+  else
+    echo "Success!"
+  fi
 }
 
 run_test npm yarpm-echo '^npm foo$'
-run_test pnpm yarpm-echo '^.+/pnpm.js run echo foo foo$'
-run_test npm yarpm-pnpm-echo '^.+/pnpm run echo foo foo$'
-run_test yarn yarpm-echo '^.+/yarn.js run echo foo foo$'
-run_test npm yarpm-yarn-echo '^.+/yarn.js run echo foo foo$'
+run_test pnpm yarpm-echo '^.+/pnpm(.js)? run echo foo foo$'
+run_test npm yarpm-pnpm-echo '^.+/pnpm(.js)? run echo foo foo$'
+run_test yarn yarpm-echo '^.+/yarn(.js)? run echo foo foo$'
+run_test npm yarpm-yarn-echo '^.+/yarn(.js)? run echo foo foo$'
 
 popd 1>/dev/null
