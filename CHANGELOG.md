@@ -1,6 +1,6 @@
 # Change Log
 
-## unreleased
+## v1.1.0
 
 - add `yarpm-pnpm` binary to prefer `pnpm` over `npm` when run outside of a script
 
