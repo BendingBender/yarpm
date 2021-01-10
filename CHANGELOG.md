@@ -1,5 +1,9 @@
 # Change Log
 
+## unreleased
+
+- add `yarpm-pnpm` binary to prefer `pnpm` over `npm` when run outside of a script
+
 ## v1.0.1
 
 - upgrade dependencies
