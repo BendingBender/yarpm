@@ -3,6 +3,7 @@
 [![NPM version][npm-version]][npm-url]
 [![NPM downloads][npm-downloads]][npm-url]
 [![NPM total downloads][npm-total-downloads]][npm-url]
+[![Test results][github-actions-tests]][github-actions-tests-url]
 
 ## Summary
 
@@ -159,6 +160,8 @@ Please use GitHub Issues.
 [MIT](https://github.com/BendingBender/yarpm/blob/master/LICENSE)
 
 [npm-url]: https://www.npmjs.com/package/yarpm
-[npm-version]: https://img.shields.io/npm/v/yarpm.svg
-[npm-downloads]: https://img.shields.io/npm/dm/yarpm.svg
-[npm-total-downloads]: https://img.shields.io/npm/dt/yarpm?label=total+downloads
+[npm-version]: https://shields.io/npm/v/yarpm.svg
+[npm-downloads]: https://shields.io/npm/dm/yarpm.svg
+[npm-total-downloads]: https://shields.io/npm/dt/yarpm?label=total+downloads
+[github-actions-tests]: https://shields.io/github/workflow/status/BendingBender/yarpm/Run%20Tests/master
+[github-actions-tests-url]: https://github.com/BendingBender/yarpm/actions?query=workflow%3A%22Run+Tests%22
