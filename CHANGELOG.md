@@ -1,6 +1,6 @@
 # Change Log
 
-## unreleased
+## v1.0.1
 
 - upgrade dependencies
 

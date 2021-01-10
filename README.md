@@ -1,5 +1,11 @@
 # yarpm
 
+[![NPM version][npm-version]][npm-url]
+[![NPM downloads][npm-downloads]][npm-url]
+[![NPM total downloads][npm-total-downloads]][npm-url]
+
+## Summary
+
 A CLI tool to run npm scripts with either `npm` or `yarn`, depending on how it was started. Useful for setups where
 some team members use `npm` while others use `yarn`, especially when Windows and Unix-like systems are used across the
 team.
@@ -165,3 +171,8 @@ Please use GitHub Issues.
 ## License
 
 [MIT](https://github.com/BendingBender/yarpm/blob/master/LICENSE)
+
+[npm-url]: https://www.npmjs.com/package/yarpm
+[npm-version]: https://img.shields.io/npm/v/yarpm.svg
+[npm-downloads]: https://img.shields.io/npm/dm/yarpm.svg
+[npm-total-downloads]: https://img.shields.io/npm/dt/yarpm?label=total+downloads
