@@ -9,7 +9,7 @@ pushd test-project 1>/dev/null
 
 npm init -y
 npm link yarpm
-jq '.scripts=(.scripts + { "echo": "echo $(ps -p \"$$\" -o ppid= | xargs ps -o command | tail -n -1)", "yarpm-echo": "yarpm run echo", "yarpm-yarn-echo": "yarpm-yarn run echo" })' package.json > package.$$.json && mv package.$$.json package.json
+jq '.scripts=(.scripts + { "echo": "echo $(ps -p \"$$\" -o ppid= | xargs ps -o command | tail -n -1)", "yarpm-echo": "yarpm run echo", "yarpm-pnpm-echo": "yarpm-pnpm run echo", "yarpm-yarn-echo": "yarpm-yarn run echo" })' package.json > package.$$.json && mv package.$$.json package.json
 unset npm_execpath
 
 function run_test {
@@ -22,6 +22,8 @@ function run_test {
 }
 
 run_test npm yarpm-echo '^npm foo$'
+run_test pnpm yarpm-echo '^.+/pnpm.js run echo foo foo$'
+run_test npm yarpm-pnpm-echo '^.+/pnpm run echo foo foo$'
 run_test yarn yarpm-echo '^.+/yarn.js run echo foo foo$'
 run_test npm yarpm-yarn-echo '^.+/yarn.js run echo foo foo$'
 

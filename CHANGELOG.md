@@ -1,5 +1,9 @@
 # Change Log
 
+## v1.1.1
+
+- fix permission flags for `yarpm-pnpm` binary, add tests
+
 ## v1.1.0
 
 - add `yarpm-pnpm` binary to prefer `pnpm` over `npm` when run outside of a script
