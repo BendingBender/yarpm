@@ -26,9 +26,8 @@ When running the `start` script with `yarn start`, the dependent `build` script 
 
 ```bash
 ~/test$ yarn start
-yarn start v0.21.3
+yarn start v1.22.5
 $ yarpm run build
-yarn run v0.21.3
 $ tsc index.ts
 Done in 1.92s.
 Done in 2.27s.
