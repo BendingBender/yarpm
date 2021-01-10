@@ -1,6 +1,14 @@
 Change Log
 ===
 
+unreleased
+---
+* upgrade dependencies
+
+**BREAKING**:
+
+* drop support for Node < 8
+
 v0.2.1
 ---
 * fix script to run on Node 4
