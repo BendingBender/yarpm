@@ -7,9 +7,17 @@ rm -R test-project 2>/dev/null || true
 mkdir test-project
 pushd test-project 1>/dev/null
 
-npm init -y
+cat <<'EOF' > package.json
+{
+  "scripts": {
+    "echo": "echo \"$npm_config_user_agent\"",
+    "yarpm-echo": "yarpm run echo",
+    "yarpm-pnpm-echo": "yarpm-pnpm run echo",
+    "yarpm-yarn-echo": "yarpm-yarn run echo"
+  }
+}
+EOF
 npm link yarpm
-jq '.scripts=(.scripts + { "echo": "echo $(ps -p \"$$\" -o ppid= | xargs ps -o command | tail -n -1)", "yarpm-echo": "yarpm run echo", "yarpm-pnpm-echo": "yarpm-pnpm run echo", "yarpm-yarn-echo": "yarpm-yarn run echo" })' package.json > package.$$.json && mv package.$$.json package.json
 unset npm_execpath
 
 function run_test {
@@ -25,7 +33,7 @@ function run_test {
   set -e
 
   if [[ $grep_result -ne 0 ]]; then
-    echo 'test for "'"$exe"' run '"$npm_script"'" failed!'
+    echo 'test for "'"$exe"' run '"$npm_script failed! Couldn't find pattern $test_pattern in output:"
     cat "$exe-$npm_script".$$.txt
     exit 1
   else
@@ -33,10 +41,10 @@ function run_test {
   fi
 }
 
-run_test npm yarpm-echo '^npm foo$'
-run_test pnpm yarpm-echo '^.+/pnpm(.js)? run echo foo foo$'
-run_test npm yarpm-pnpm-echo '^.+/pnpm(.js)? run echo foo foo$'
-run_test yarn yarpm-echo '^.+/yarn(.js)? run echo foo foo$'
-run_test npm yarpm-yarn-echo '^.+/yarn(.js)? run echo foo foo$'
+run_test npm yarpm-echo '^npm/.+foo$'
+run_test pnpm yarpm-echo '^pnpm/.+foo$'
+run_test npm yarpm-pnpm-echo '^pnpm/.+foo$'
+run_test yarn yarpm-echo '^yarn/.+foo$'
+run_test npm yarpm-yarn-echo '^yarn/.+foo$'
 
 popd 1>/dev/null
