@@ -10,9 +10,10 @@
   "main": "lib/index.js",
   "scripts": {
     "format": "prettier --write .",
+    "prepare": "husky install",
+    "release": "npm version --sign-git-tag --message 'v%s'",
     "test": "./test.sh",
-    "test:docker": "docker run -it --rm -v \"$(pwd):/app\" -w /app node:18 /bin/bash -c 'npm i -g pnpm && rm -Rf node_modules && npm i && npm test && rm -Rf node_modules'",
-    "prepare": "husky install"
+    "test:docker": "docker run -it --rm -v \"$(pwd):/app\" -w /app node:18 /bin/bash -c 'npm i -g pnpm && rm -Rf node_modules && npm i && npm test && rm -Rf node_modules'"
   },
   "repository": {
     "type": "git",

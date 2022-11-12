@@ -1,5 +1,11 @@
 # Change Log
 
+## v1.2.0
+
+- improve compatibility with Windows (thanks @luy19) (#7)
+- upgrade dev dependencies
+- update tests to run only on supported node versions
+
 ## v1.1.1
 
 - fix permission flags for `yarpm-pnpm` binary, add tests
