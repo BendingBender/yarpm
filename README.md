@@ -149,7 +149,7 @@ https://github.com/BendingBender/yarpm/blob/master/CHANGELOG.md
 
 ## Contributing
 
-Thank you for contributing!
+Clone the repo and make a pull request. Thank you for contributing!
 
 ### Bug Reports or Feature Requests
 
