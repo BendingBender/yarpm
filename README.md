@@ -163,5 +163,5 @@ Please use GitHub Issues.
 [npm-version]: https://shields.io/npm/v/yarpm.svg
 [npm-downloads]: https://shields.io/npm/dm/yarpm.svg
 [npm-total-downloads]: https://shields.io/npm/dt/yarpm?label=total+downloads
-[github-actions-tests]: https://shields.io/github/workflow/status/BendingBender/yarpm/Run%20Tests/master
+[github-actions-tests]: https://img.shields.io/github/actions/workflow/status/BendingBender/yarpm/tests.yml?branch=master
 [github-actions-tests-url]: https://github.com/BendingBender/yarpm/actions?query=workflow%3A%22Run+Tests%22
